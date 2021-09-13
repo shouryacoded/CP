@@ -1,30 +1,49 @@
 #include<bits/stdc++.h>
 using namespace std;
+int solve(int size, int a[],int b[])
+{
+    int target = 0;
+    int step = 0;
+    for(int i = 0; i < size; i++)
+    {
+        if(a[i] == b[i])
+        target = i;
+    }
+    int t1 = a[target];
+    int t2 = b[target];
+    for(int j = 0;j < size;j++)
+    {
+        if(a[j]+b[j] == t1 + t2)
+        step++;
+        else if(a[j] == t1 && b[j] != t2)
+        step++;
+        else if(a[j] != t1 && b[j] != t2)
+        step+=2;
+        else if(a[j] != t1 && b[j] == t2)
+        step++;
+        else break;
+    }
+    return step;
+}
 int main()
 {
-    system("clear");
-    int n,q,m,sum = 0;
-    cin >> n;
-    int ar[n];
-    for(int i = 0; i < n; i++)
+    int t;
+    cin >> t;
+    while (t--)
     {
-        cin >> ar[i];
-    }
-    cin >> q;
-    int cap = q;
-    int sumt[q];
-    while(q--)
-    {   cin >> m;
-        sum = 0;
-        for(int k = 0; k < n; k++)
+        int n;
+        cin >> n;
+        int a[n];
+        int b[n];
+        for(int i=0;i<n;i++)
         {
-            sum += abs(ar[k]-m);
+        cin >> a[i];
         }
-        sumt[q]= sum;
-    }
-    for(int i = 0; i < cap; i++)
-    {
-        cout << sumt[i] << endl;
+        for(int i=0;i<n;i++)
+        {
+        cin >> b[i];
+        }
+        cout << solve(n, a, b) << endl;
     }
     return 0;
 }

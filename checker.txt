@@ -1,2 +1,0 @@
-This is a dummy file to check git function through SSH.
-

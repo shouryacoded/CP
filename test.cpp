@@ -4,9 +4,10 @@ using namespace std;
 #define ll long long
 #define ld long double
 
-int solve(int points)
+string solve(int n, int x, vector<int> ar)
 {
-    
+    if(is_sorted(ar.begin(),ar.end()))
+        return "YES";
     
 }
 
@@ -20,9 +21,14 @@ int main()
     cin >> t;
     while(t--)
     {
-        int points;
-        cin >> points;
-        cout << solve(points) << endl;
+        int n,x;
+        int temp;
+        vector<int> ar;
+        cin >> n >> x;
+        for(int i = 0; i < n; i++){
+            cin >> temp;
+            ar.emplace_back(temp);
+        }
     }
     return 0;
 }
